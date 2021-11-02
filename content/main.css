@@ -38,7 +38,7 @@
 }
 
 .container-app-loader {
-  display: flex;
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
@@ -50,6 +50,10 @@
   z-index: 10000000000;
   background: #fff;
   opacity: 1
+}
+
+.loading .container-app-loader {
+  display: flex;
 }
 
 .container-pulse {
@@ -193,6 +197,8 @@ body {
 .person-data-wrap {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 4px;
 }
 
 .expiry-date-container {
@@ -381,4 +387,43 @@ body {
   color: #66727F;
   font-size: 18px;
   line-height: 24px;
+}
+
+.qr-container {
+  background: #fff;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.dowload-canvas {
+  display: none;
+}
+
+.bd-title {
+  line-height: 30px;
+}
+
+.unpaid {
+  position: fixed;
+  padding: 30px 10px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  top: calc(50% - 40px);
+  background-color: #f00;
+  color: #fff;
+  font-size: 20px;
+  opacity: .3;
+}
+.unpaid.hidden {
+  display: none;
+
 }
