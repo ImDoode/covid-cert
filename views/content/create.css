@@ -1,0 +1,74 @@
+input {
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: inherit;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.gray input {
+  color: #66727f;
+}
+
+.small-text input {
+  font-size: 14px;
+}
+
+input:focus,
+input:placeholder-shown {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;
+}
+
+input.cert__part-input {
+  font-size: 20px;
+  width: 60px;
+  font-weight: bold;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+input.date-input {
+  color: #66727f;
+  transform: translateY(1px);
+  width: 80px;
+}
+
+input.name-input {
+  font-size: 16px;
+  font-weight: 600;
+  width: 100px;
+}
+input.passport-input:first-of-type {
+  width: 30px;
+}
+input.passport-input:first-of-type:not(:placeholder-shown) {
+  width: 16px;
+}
+
+input.passport-input {
+  width: 40px;
+}
+
+input.passport-input:not(:placeholder-shown) {
+  padding: 0;
+}
+
+button[type="submit"] {
+  width: 100%;
+  margin-top: 10px;
+  background: no-repeat;
+  font-size: 16px;
+  cursor: pointer;
+}
