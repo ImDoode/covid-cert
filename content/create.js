@@ -24,4 +24,11 @@ function getRandomDate() {
   
   document.getElementsByClassName('js-date-input')[0].value = getRandomDate();
 
+  document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    const encodedData = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+    console.log(encodedData);
+  });
+
 })()
