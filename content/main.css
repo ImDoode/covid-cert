@@ -38,7 +38,7 @@
 }
 
 .container-app-loader {
-  display: flex;
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
@@ -50,6 +50,10 @@
   z-index: 10000000000;
   background: #fff;
   opacity: 1
+}
+
+.loading .container-app-loader {
+  display: flex;
 }
 
 .container-pulse {

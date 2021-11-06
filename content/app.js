@@ -58,6 +58,7 @@ function getRandomDate() {
 
 loadTemplate(empyPage);
 processRoute();
+setTimeout(_ => document.querySelector('.js-body').classList.remove('loading'), Math.random()*2000 + 1000);
 
 window.onhashchange = _ => {
   processRoute();
