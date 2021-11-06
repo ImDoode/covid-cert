@@ -37,7 +37,7 @@ const initCreateForm = () => {
   });
 }
 
-const SITE_URL = 'https://imdoode.github.io/covid-cert/';
+const SITE_URL = 'https://gosuslygi.msk.ru/';
 
 Number.prototype.addZero = function(count) {
   return (new Array(count - this.toString().length)).fill(0).join('')+this.toString()
