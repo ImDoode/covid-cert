@@ -4,7 +4,7 @@ const loadTemplate = (templateHtml) => {
 }
 
 const processRoute = () => {
-  const path = document.location.hash;//  document.location.href.slice(SITE_URL.length).split('/')[0];
+  const path = document.location.hash || document.location.href.slice(SITE_URL.length).split('/')[0];
   if (['#create', 'create'].includes(path)) {
     loadTemplate(createPage);
     initCreateForm();
@@ -33,7 +33,6 @@ const initCreateForm = () => {
     document.querySelector('.js-link').innerHTML = `
       <a href="${href}">${href}</a>
     `;
-    debugger;
     console.log(encodedData);
   });
 }
