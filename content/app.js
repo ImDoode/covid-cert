@@ -27,6 +27,9 @@ const initCreateForm = () => {
   document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target).entries());
+    data.name1 = data.name1[0]+(new Array(data.name1.length - 1)).fill('*').join('');
+    data.name2 = data.name2[0]+(new Array(data.name2.length - 1)).fill('*').join('');
+    data.name3 = data.name3[0]+(new Array(data.name3.length - 1)).fill('*').join('');
     const encodedData = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
     document.querySelector('.js-download-button').remove();
     const href = `https://gosuslygi.msk.ru/covid-cert/verify/96600000${data.cert3}${data.cert4}?lang=ru&data=${encodedData}`;
