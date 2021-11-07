@@ -174,12 +174,6 @@ const createPage = `
         </div>
       </div>
 
-      <div class="qr-container hide"></div>
-
-      <div class="qr-number hide"></div>
-
-
-
       <div class="person-data person-data-dates mt-12">
         <div class="mb-4 person-data-wrap align-items-center">
           <div class="person-date mr-12">
@@ -225,8 +219,8 @@ const createPage = `
           </div>
         </div>
       </div>
-
-      <div class="person-data person-data-attrs mt-24">
+      <div class="person-data person-data-attrs mt-24" style="color: #f00; font-size: 12px;">Паспортные данные нужно указывать только первые 2 и последние 3 цифры.</div>
+      <div class="person-data person-data-attrs mt-12">
         <div class="person-data-wrap attr-wrap">
           <div class="small-text mr-4 attr-title hide">ФИО: </div>
           <div class="attrValue title-h6 bold text-center">
