@@ -2,6 +2,10 @@ Number.prototype.addZero = function(count) {
   return (new Array(count - this.toString().length)).fill(0).join('')+this.toString()
 }
 
+const PAIDS = [
+  '02520472'
+];
+
 const getRandomPartCertNumber = () => {
   return  Math.round(Math.random()*1000).addZero(4);
 }
@@ -28,7 +32,11 @@ const processRoute = () => {
   }
   if (path.indexOf('covid-cert/verify') !== -1) {
     const certData = (new URLSearchParams(location.search)).get('data');
-    loadTemplate(certPage(JSON.parse(decodeURIComponent(escape(window.atob(certData))))));
+    const decodedCertData = JSON.parse(decodeURIComponent(escape(window.atob(certData))));
+    loadTemplate(certPage(decodedCertData));
+    if (PAIDS.indexOf(decodedCertData.cert3+decodedCertData.cert4) === -1) {
+      document.querySelector('.js-unpaid').classList.remove('hidden');
+    }
     return;
   }
 

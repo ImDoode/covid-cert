@@ -410,3 +410,18 @@ body {
 .bd-title {
   line-height: 30px;
 }
+
+.unpaid {
+  position: fixed;
+  padding: 20px 10px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  top: 40%;
+  background-color: #f00;
+  color: #fff;
+  font-size: 20px;
+}
+.unpaid.hidden {
+  display: none;
+}
