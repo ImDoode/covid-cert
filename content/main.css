@@ -387,3 +387,20 @@ body {
   line-height: 24px;
 }
 
+.qr-container {
+  background: #fff;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.dowload-canvas {
+  display: none;
+}

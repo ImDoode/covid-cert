@@ -1,19 +1,48 @@
+Number.prototype.addZero = function(count) {
+  return (new Array(count - this.toString().length)).fill(0).join('')+this.toString()
+}
+
+const getRandomPartCertNumber = () => {
+  return  Math.round(Math.random()*1000).addZero(4);
+}
+
+const getRandomDate = () => {
+  let date = [
+    Math.round(Math.random()*30).addZero(2),
+    (Math.round(Math.random()*3) + 2).addZero(2),
+    2022
+  ];
+  return date.join('.');
+}
 
 const loadTemplate = (templateHtml) => {
   document.querySelector('.js-template-container').innerHTML = templateHtml;
 }
 
 const processRoute = () => {
-  const path = document.location.hash || document.location.href.slice(SITE_URL.length).split('/')[0];
-  if (['#create', 'create'].includes(path)) {
+  const path = document.location.href;
+  if (path.indexOf('create') !== -1) {
     loadTemplate(createPage);
     initCreateForm();
+    return;
   }
-  if (['#covid-cert', 'covid-cert'].includes(path)) {
-    //const certData = 'eyJjZXJ0MyI6IjA3NDQiLCJjZXJ0NCI6IjAwNjkiLCJkYXRlIjoiMDQuMDYuMjAyMiIsIm5hbWUxIjoi0JoqKioqKioqKiIsIm5hbWUyIjoi0JoqKioqKiIsIm5hbWUzIjoi0J0qKioqKioqKioiLCJiZCI6IjE5OTQtMDctMTgiLCJwYXNzcG9ydDEiOiI2OTkifQ==';
+  if (path.indexOf('covid-cert/verify') !== -1) {
     const certData = (new URLSearchParams(location.search)).get('data');
     loadTemplate(certPage(JSON.parse(decodeURIComponent(escape(window.atob(certData))))));
+    return;
   }
+
+  document.location.href = 'https://gosuslugi.ru/';
+}
+
+const downloadURI = (uri, name) => {
+  var link = document.createElement("a");
+  link.download = name;
+  link.href = uri;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  delete link;
 }
 
 const initCreateForm = () => {
@@ -31,35 +60,30 @@ const initCreateForm = () => {
     data.name2 = data.name2[0]+(new Array(data.name2.length - 1)).fill('*').join('');
     data.name3 = data.name3[0]+(new Array(data.name3.length - 1)).fill('*').join('');
     const encodedData = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
-    document.querySelector('.js-download-button').remove();
     const href = `https://gosuslygi.msk.ru/covid-cert/verify/96600000${data.cert3}${data.cert4}?lang=ru&data=${encodedData}`;
-    document.querySelector('.js-link').innerHTML = `
-      <a href="${href}">${href}</a>
-    `;
-    console.log(encodedData);
+
+    new QRCode(document.querySelector('.js-qrcode-canvas'), {
+        text: href,
+        width: 200,
+        height: 200,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+    const canvasIn = document.querySelector('.js-qrcode-canvas canvas');
+    const ctxIn = canvasIn.getContext('2d');
+    const canvasOut = document.querySelector('.js-download-canvas');
+    const ctxOut = canvasOut.getContext('2d');
+    ctxOut.fillStyle = '#fff';
+    ctxOut.fillRect(0, 0, 300, 400);
+    ctxOut.drawImage(canvasIn, 50, 100);
+    downloadURI(canvasOut.toDataURL(), `covid-qr-${(new Date()).getTime()}.png`);
   });
 }
 
-const SITE_URL = 'https://gosuslygi.msk.ru/';
 
-Number.prototype.addZero = function(count) {
-  return (new Array(count - this.toString().length)).fill(0).join('')+this.toString()
-}
 
-function getRandomPartCertNumber() {
-  return  Math.round(Math.random()*1000).addZero(4);
-}
 
-function getRandomDate() {
-  let date = [
-    Math.round(Math.random()*30).addZero(2),
-    (Math.round(Math.random()*3) + 2).addZero(2),
-    2022
-  ];
-  return date.join('.');
-}
-
-loadTemplate(empyPage);
 processRoute();
 setTimeout(_ => document.querySelector('.js-body').classList.remove('loading'), Math.random()*2000 + 1000);
 

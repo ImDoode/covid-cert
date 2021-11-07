@@ -1,6 +1,7 @@
 <html lang="ru">
 
 <head>
+    <base href="https://gosuslygi.msk.ru/">
     <link href="https://gu-st.ru/st/img/favicon.ico" rel="shortcut icon">
     <link href="https://gu-st.ru/htdocs/img/icon/iphone/ico120.png?fh=45fd24f8b8236cd7dc4febdb102f0863"
         rel="apple-touch-icon">
@@ -24,15 +25,18 @@
     <link rel="stylesheet" type="text/css" href="content/create.css">
 </head>
 
-<body class="web-view-mode js-body">
-    <div class="container-app-loader" id="start-app-loader">
-        <div class="container-pulse pulse animated"></div>
-        <div class="container-app-logo">
-          <div class="app-logo"></div>
-        </div>
-      </div>
+<body class="web-view-mode loading js-body">
 
+    <div class="container-app-loader" id="start-app-loader">
+      <div class="container-pulse pulse animated"></div>
+      <div class="container-app-logo">
+        <div class="app-logo"></div>
+      </div>
+    </div>
+
+    <div class="qr-container"></div>
     <div class="js-template-container"></div>
+    <script src="content/qrcode.min.js"></script>
     <script src="content/templates.js"></script>
     <script src="content/app.js"></script>
 

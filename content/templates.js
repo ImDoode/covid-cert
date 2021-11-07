@@ -248,7 +248,7 @@ const createPage = `
       </div>
 
       <div class="mt-24">
-        <button type="submit" class="button download js-download-button">Получить ссылку</button>
+        <button type="submit" class="button download js-download-button">Скачать QR код</button>
         <span class="js-link"></span>
       </div>
 
@@ -433,4 +433,4 @@ const certPage = (data) => `
   </div> <div class="ap-ACT-ctrls ap-ACT-ctrls__contact ap-is-disabled">Contact</div> <div class="ap-ACT-ctrls ap-ACT-ctrls__clear ap-is-disabled">Clear All</div> <div title="Close" class="ap-ACT-ctrls ap-ACT-ctrls__close ap-icon-close"></div></div></div> </div> <!----> <!----> <!----></div></div><div at-magnifier-wrapper=""><div class="at-theme-light"><div class="at-base notranslate" translate="no"></div></div></div></body></html>
 `;
 
-const empyPage = 'Sprudo sparde haha'
+const empyPage = 'Sprudo sparde haha';
