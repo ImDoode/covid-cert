@@ -197,6 +197,8 @@ body {
 .person-data-wrap {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 4px;
 }
 
 .expiry-date-container {
@@ -403,4 +405,8 @@ body {
 
 .dowload-canvas {
   display: none;
+}
+
+.bd-title {
+  line-height: 30px;
 }

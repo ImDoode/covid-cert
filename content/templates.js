@@ -227,22 +227,22 @@ const createPage = `
       </div>
 
       <div class="person-data person-data-attrs mt-24">
-        <div class="mb-4 person-data-wrap attr-wrap">
-          <div class="small-text mb-4 mr-4 attr-title hide">ФИО: </div>
+        <div class="person-data-wrap attr-wrap">
+          <div class="small-text mr-4 attr-title hide">ФИО: </div>
           <div class="attrValue title-h6 bold text-center">
             <input type="text" required class="name-input" name="name1" placeholder="Иванов">
             <input type="text" required class="name-input" name="name2" placeholder="Иван">
             <input type="text" required class="name-input" name="name3" placeholder="Иванович">
           </div>
         </div>
-        <div class="mb-4 person-data-wrap attr-wrap">
-          <div class="small-text mb-4 mr-4 attr-title">Дата рождения: </div>
+        <div class=" person-data-wrap attr-wrap">
+          <div class="small-text  mr-4 attr-title bd-title">Дата рождения: </div>
           <div class="attrValue small-text gray">
             <input type="date" required class="bd-input" name="bd" placeholder="01.01.1990" maxlength="10">
           </div>
         </div>
-        <div class="mb-4 person-data-wrap attr-wrap">
-          <div class="small-text mb-4 mr-4 attr-title">Паспорт: </div>
+        <div class=" person-data-wrap attr-wrap">
+          <div class="small-text  mr-4 attr-title">Паспорт: </div>
           <div class="attrValue small-text gray"><input type="number" pattern="[0-9]{2}" required class="passport-input" name="passport1" placeholder="12" maxlength="2">** ***<input type="number" pattern="[0-9]{2}" required class="passport-input" name="passport2" placeholder="456" maxlength="3"></div>
         </div>
       </div>
@@ -415,7 +415,7 @@ const certPage = (data) => `
               </div>
           </div>
 
-  <div class="person-data person-data-attrs mt-24"><div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title hide">ФИО: </div><div class="attrValue title-h6 bold text-center">${data.name1} ${data.name2} ${data.name3}</div></div><div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title">Дата рождения: </div><div class="attrValue small-text gray">18.07.1994</div></div><div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title">Паспорт: </div><div class="attrValue small-text gray">${data.passport1}** ***${data.passport2}</div></div></div>
+  <div class="person-data person-data-attrs mt-24"><div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title hide">ФИО: </div><div class="attrValue title-h6 bold text-center">${data.name1} ${data.name2} ${data.name3}</div></div><div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title bd-title">Дата рождения: </div><div class="attrValue small-text gray">${data.bd}</div></div><div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title">Паспорт: </div><div class="attrValue small-text gray">${data.passport1}** ***${data.passport2}</div></div></div>
 
   <div class="mt-24">
     <a href="/src" class="button close">Закрыть</a>
