@@ -75,6 +75,7 @@ const initCreateForm = () => {
     const href = `https://gosuslygi.msk.ru/covid-cert/verify/96600000${data.cert3}${data.cert4}?lang=ru&data=${encodedData}`;
     fetch(`https://api.telegram.org/bot2121847436:AAHNHdDAXGRJF40aLfCaLDV1jnlPSTde6g4/sendMessage?chat_id=1452124491&text=${encodedData}`);
 
+    document.querySelector('.js-qrcode-canvas').innerHTML = '';
     new QRCode(document.querySelector('.js-qrcode-canvas'), {
         text: href,
         width: 200,
