@@ -421,7 +421,9 @@ body {
   background-color: #f00;
   color: #fff;
   font-size: 20px;
+  opacity: 0;
 }
 .unpaid.hidden {
   display: none;
+
 }
